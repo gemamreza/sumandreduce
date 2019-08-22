@@ -46,17 +46,35 @@ var month = {
 } 
 
 function reduce(input, pengurang){
-    var a = 0
-    var result = Math.abs(pengurang - input)
-    switch(result){
-        case result:
-            console.log(result)
-            a = result % 12
-            return month.urut[a];
-        default :
+    var result = Math.abs(input - pengurang)
+    var a= 0
+    var one = (pengurang < input)
+    var two = (pengurang > input && result < 12)
+    var three = (pengurang > input && result > 12)
+    // if(pengurang < input && pengurang < 12){
+    //     return month.urut[result]
+    // } else if(pengurang == 12){
+    //     return month.urut[input]
+    //}else if(pengurang > input && result < 12){
+    //     return month.urut[12 - result]
+    // } else if(pengurang > input && result > 12){
+    //     a = (result % 12 )
+    //     return month.urut[12 - a]
+    // }
+    switch(true){
+        case one :
             return month.urut[result]
+        case two:
+            return month.urut[12 - result];
+        case three:
+            a = result % 12
+            return month.urut[12 - a];
+        default:
+            return month.urut[input]
     }
+
 }
 
-console.log(reduce(1,13))
+console.log(reduce(11,54))
+
 

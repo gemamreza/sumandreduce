@@ -30,6 +30,7 @@ class Add extends Component {
         switch(result){
         case 0 :
             alert(month.urut[a]);
+        break;
         default :
             alert(month.urut[result]);
         }
